@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 
 export default function App() {
   useEffect(() => {
-    console.log('content view loaded');
+    window.postMessage({type: "LADDER_URL", url: chrome.runtime.getURL("ladder.js")}, "*")
   }, []);
 
   return <div className="">content view</div>;

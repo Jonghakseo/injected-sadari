@@ -7,4 +7,11 @@
  * If you want to use other modules in content scripts, you need to import them via these files.
  *
  */
-import('@pages/content/injected/toggleTheme');
+window.addEventListener("message", (event) => {
+  if(event.data.type === "LADDER_URL") {
+    console.log(event.data)
+    window._nx_js_load(event.data.url, () => {
+      console.log("ladder loaded")
+    })
+  }
+})
