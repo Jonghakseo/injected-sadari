@@ -7096,20 +7096,10 @@ nhn.search = nhn.search || {},
             this.resultScreenW = 580,
             this.oneResultW = 136,
             this.oneH = 28;
-          // const isCheat = names.find((name) => name === "규희");
           for (var t = 54, e = parseInt((this.resultScreenW - Math.ceil(m / 6) * this.oneResultW) / 2), i = 0; i < m; i++) {
             var n = new nhn.search.ladders.lib.resultMc;
             n.nameText.text = names[i];
             n.targetText.text = targetNames[results[i]]
-            // if (isCheat){
-            //   if (n.nameText.text === "규희"){
-            //     n.targetText.text = "당첨";
-            //   } else if (targetNames[results[i]] === "당첨"){
-            //     n.targetText.text = "꽝";
-            //   } else {
-            //     n.targetText.text = targetNames[results[i]]
-            //   }
-            // }
               n.x = e,
               n.y = t,
               this.mc.addChild(n),
@@ -7164,8 +7154,9 @@ nhn.search = nhn.search || {},
             this.userTextArea.right = this.userTextArea.x + this.userTextArea.width,
             this.userTextArea.bottom = this.userTextArea.y + this.userTextArea.height,
             this.nameRectShape = new createjs.Shape,
+            //! 결과가 반복되면서 생기는 흰색 배경 문제 제거
             this.nameRectShape.graphics.beginFill("#FFF"),
-            this.nameRectShape.alpha = .1,
+            this.nameRectShape.alpha = 0.01,
             this.nameRectShape.graphics.drawRect(this.userTextArea.x, this.userTextArea.y, this.userTextArea.width, this.userTextArea.height),
             this.mc.addChild(this.nameRectShape),
             this.nameRectShape.cursor = "pointer",
@@ -7205,8 +7196,9 @@ nhn.search = nhn.search || {},
             this.itemTextArea.right = this.itemTextArea.x + this.itemTextArea.width,
             this.itemTextArea.bottom = this.itemTextArea.y + this.itemTextArea.height,
             this.itemRectShape = new createjs.Shape,
+            //! 결과가 반복되면서 생기는 흰색 배경 문제 제거
             this.itemRectShape.graphics.beginFill("#FFF"),
-            this.itemRectShape.alpha = .1,
+            this.itemRectShape.alpha = 0.01,
             this.itemRectShape.graphics.drawRect(this.itemTextArea.x, this.itemTextArea.y, this.itemTextArea.width, this.itemTextArea.height),
             this.mc.addChild(this.itemRectShape),
             this.itemRectShape.cursor = "pointer",
