@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "injected-sadari",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
+  "description": "chrome extension for naver sadari",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -20,8 +20,7 @@
     "commitlint": "commitlint --edit",
     "lint": "eslint src --ext .ts,.js,.tsx,.jsx",
     "lint:fix": "pnpm lint --fix",
-    "prettier": "prettier . --write",
-    "prepare": "husky install"
+    "prettier": "prettier . --write"
   },
   "type": "module",
   "dependencies": {
@@ -55,7 +54,6 @@
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "fs-extra": "11.1.1",
-    "husky": "8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "15.2.0",
     "magic-string": "^0.30.6",
