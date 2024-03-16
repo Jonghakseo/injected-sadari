@@ -6951,10 +6951,10 @@ nhn.search = nhn.search || {},
         },
         drawladder: function () {
           (p = new B(this.totalLadder, this.ladderMc, this.ladderWidth, 8)).makeLoadder(),
-            //! p.drawer 로직을 init 로직으로 대체. 사다리 그리기를 유예
-            p.init(),
+            //! p.drawLadder 사다리 그리기를 유예
             this.mc.removeChild(this.startButton),
             this.mc.removeChild(this.returnButton);
+
           for (let t = 0; t < this.totalLadder; t++) {
             var e = this.ladderLines[t];
             names[t] = y[t].getText(),
@@ -7275,13 +7275,6 @@ nhn.search = nhn.search || {},
               })
           }
           return e
-        },
-        init: function (){
-          var h = new createjs.Graphics;
-          h.setStrokeStyle(1),
-            h.beginStroke("#000000");
-          var o = new createjs.Shape(h);
-          this.mc.addChild(o);
         },
         drawLadder: function () {
           var t, e, i, n, s = this.ladderStartPoint.length, h = new createjs.Graphics;
