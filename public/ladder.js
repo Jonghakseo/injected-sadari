@@ -1,5 +1,8 @@
 console.log("on load custom ladder")
 
+const VICTIM = "VICTIM" //TODO from global?
+const TARGET = "KEYWORD"
+
 document.getElementById('ladders_canvas').remove()
 const newCanvas = document.createElement('canvas')
 newCanvas.id = 'ladders_canvas'
@@ -6971,8 +6974,8 @@ nhn.search = nhn.search || {},
             this.msg_mc.gotoAndPlay("ladderScene"),
             this.ladderItems = [];
 
-          //! 이름에 규희가 포함되어있고 당첨 키워드가 있는 경우에만 동작
-          const isCheat = !!names.find((name) => name === "규희") && !!targetNames.find((name) => name === "당첨");
+          //! 이름에 VICTIM이 포함되어있고 당첨 키워드가 있는 경우에만 동작
+          const isCheat = !!names.find((name) => name === VICTIM) && !!targetNames.find((name) => name === TARGET);
 
           for (t = 0; t < this.totalLadder; t++) {
             var i = names[parseInt(6 * Math.random())] + " " + (t + 1)
@@ -7001,11 +7004,10 @@ nhn.search = nhn.search || {},
             const success = this.ladderItems.some((item) => {
               const name = item.nameTargetText.text;
               const target = item.itemTargetText.text;
-              return name === "규희" && target === "당첨";
+              return name === VICTIM && target === TARGET;
             })
             //! 목표에 해당하는 사다리 조합이 나올때까지 실행
             if (!success){
-              console.log("retry")
               this.drawladder();
               return;
             }
