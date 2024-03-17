@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 console.log('on load custom ladder?');
 
 let VICTIM = window.__injected_sadari_victim;

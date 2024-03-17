@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 (this.createjs = this.createjs || {}),
   (createjs.extend = function (t, e) {
     'use strict';
