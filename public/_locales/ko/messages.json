@@ -1,0 +1,10 @@
+{
+  "extensionDescription": {
+    "description": "익스텐션 설명",
+    "message": "네이버 사다리에서 특정 인물을 원하는 타겟으로 연결시키기 위한 익스텐션입니다."
+  },
+  "extensionName": {
+    "description": "익스텐션 이름",
+    "message": "네이버 사다리 조작 익스텐션"
+  }
+}
