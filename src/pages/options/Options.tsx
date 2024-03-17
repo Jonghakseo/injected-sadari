@@ -20,6 +20,7 @@ const Options: React.FC = () => {
         target,
         isActivated,
       }));
+      alert('저장되었습니다.');
     } catch (e) {
       alert(e);
     }
