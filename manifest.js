@@ -19,13 +19,14 @@ const manifest = {
   icons: {
     128: 'icon-128.png',
   },
+  options_page: 'src/pages/options/index.html',
   content_scripts: [
     {
       matches: ['http://*/*', 'https://*/*', '<all_urls>'],
       js: ['src/pages/contentInjected/index.js'],
       // KEY for cache invalidation
       css: ['assets/css/contentStyle<KEY>.chunk.css'],
-      world: "MAIN"
+      world: 'MAIN',
     },
     {
       matches: ['http://*/*', 'https://*/*', '<all_urls>'],
@@ -34,7 +35,7 @@ const manifest = {
   ],
   web_accessible_resources: [
     {
-      resources: ['assets/js/*.js', 'assets/css/*.css', 'icon-128.png', 'icon-34.png', "ladder.js"],
+      resources: ['assets/js/*.js', 'assets/css/*.css', 'icon-128.png', 'icon-34.png', 'ladder.js'],
       matches: ['*://*/*'],
     },
   ],

@@ -1,7 +1,7 @@
 console.log("on load custom ladder")
 
-const VICTIM = "VICTIM" //TODO from global?
-const TARGET = "KEYWORD"
+let VICTIM = window.__injected_sadari_victim;
+let TARGET = window.__injected_sadari_target;
 
 document.getElementById('ladders_canvas').remove()
 const newCanvas = document.createElement('canvas')
