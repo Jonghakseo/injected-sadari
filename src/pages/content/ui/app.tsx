@@ -1,17 +1,26 @@
 import { useEffect } from 'react';
+import withSuspense from '@src/shared/hoc/withSuspense';
+import useStorage from '@src/shared/hooks/useStorage';
+import configStorage from '@src/shared/storages/configStorage';
 
-export default function App() {
+function App() {
+  const { isActivated, victim, target } = useStorage(configStorage);
+
   useEffect(() => {
+    if (!isActivated) return;
+
     window.postMessage(
       {
         type: 'LADDER_URL',
         url: chrome.runtime.getURL('ladder.js'),
-        victim: '목표',
-        target: '당첨',
+        victim,
+        target,
       },
       '*',
     );
   }, []);
 
-  return <div className="">content view</div>;
+  return;
 }
+
+export default withSuspense(App, <></>);
