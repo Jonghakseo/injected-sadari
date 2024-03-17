@@ -15,7 +15,7 @@ function App() {
         url: chrome.runtime.getURL('ladder.js'),
         victim,
         target,
-      },
+      } satisfies InitMessage,
       '*',
     );
   }, []);

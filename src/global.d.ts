@@ -29,3 +29,10 @@ declare module '*.json' {
   const content: string;
   export default content;
 }
+
+type InitMessage = {
+  type: 'LADDER_URL';
+  url: string;
+  victim: string;
+  target: string;
+};
