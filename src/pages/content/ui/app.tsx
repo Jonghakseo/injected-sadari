@@ -20,7 +20,7 @@ function App() {
     );
   }, []);
 
-  return;
+  return null;
 }
 
 export default withSuspense(App, <></>);
