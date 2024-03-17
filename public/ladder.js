@@ -1,11 +1,12 @@
 /* eslint-disable */
 
-console.log('on load custom ladder?');
-
+//! 전역으로 공유
 let VICTIM = window.__injected_sadari_victim;
 let TARGET = window.__injected_sadari_target;
 
+//! 기존 캔버스 삭제
 document.getElementById('ladders_canvas').remove();
+//! 새로운 캔버스 생성
 const newCanvas = document.createElement('canvas');
 newCanvas.id = 'ladders_canvas';
 newCanvas.width = 580;
