@@ -46,6 +46,11 @@ const debounceSrc = debounce(function (path: string) {
   );
 }, 100);
 chokidar.watch('src', { ignorePermissionErrors: true }).on('all', (_, path) => debounceSrc(path));
+chokidar.watch('public/ladder.js', { ignorePermissionErrors: true }).on('all', () => {
+  clientsThatNeedToUpdate.forEach((ws: WebSocket) =>
+    ws.send(MessageInterpreter.send({ type: 'force_reload' })),
+  );
+});
 
 /** CHECK:: manifest.js was updated **/
 chokidar.watch('manifest.js', { ignorePermissionErrors: true }).on('all', () => {

@@ -13,6 +13,7 @@ export default function addHmrIntoView(watchPath: string) {
       }
       reload();
     },
+    onForceReload: reload,
   });
 
   // reload
