@@ -3,8 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+      * {
+          font-size: 2rem;
+      }
+
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 100dvw;
+          margin: 0;
+      }
+
+      form {
+          display: flex;
+          gap: 1.5rem;
+          flex-direction: column;
+          width: 100%;
+          padding: 1rem;
+      }
+
+      button {
+          background-color: indianred;
+          margin-top: 2rem;
+      }
+  </style>
   <script>
-    async function onSubmit(e){
+    async function onSubmit(e) {
       e.preventDefault()
       const formData = new FormData(e.currentTarget);
       const victim = formData.get('victim');
@@ -29,11 +55,11 @@
 <form onsubmit="return onSubmit(event)">
   <label>
     이름
-    <input required name="victim" type="text" />
+    <input required name="victim" type="text"/>
   </label>
   <label>
     목표 키워드
-    <input required name="target" type="text" />
+    <input required name="target" type="text"/>
   </label>
   <button type="submit">저장</button>
 </form>
