@@ -9,6 +9,34 @@ function App() {
   useEffect(() => {
     if (!isActivated) return;
 
+    setInterval(() => {
+      (async function () {
+        const res = await fetch('http://localhost:3333/api/check-current-status');
+        const current = await res.json();
+        window.postMessage(
+          {
+            type: 'UPDATE_STATUS',
+            victim: current.victim,
+            target: current.target,
+          } satisfies UpdateMessage,
+          '*',
+        );
+      })();
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if (!isActivated) return;
+
+    // 최초 1회 서버와 싱크
+    void fetch('http://localhost:3333/api/update-status', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ victim, target }),
+    });
+
     window.postMessage(
       {
         type: 'LADDER_URL',

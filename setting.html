@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    async function onSubmit(e){
+      e.preventDefault()
+      const formData = new FormData(e.currentTarget);
+      const victim = formData.get('victim');
+      const target = formData.get('target');
+
+      try {
+        await fetch('/api/update-status', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({victim, target})
+        })
+        alert('저장되었습니다.')
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  </script>
+</head>
+<body>
+<form onsubmit="return onSubmit(event)">
+  <label>
+    이름
+    <input required name="victim" type="text" />
+  </label>
+  <label>
+    목표 키워드
+    <input required name="target" type="text" />
+  </label>
+  <button type="submit">저장</button>
+</form>
+</body>
+</html>

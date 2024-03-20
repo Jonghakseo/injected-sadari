@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 //! 전역으로 공유
-let VICTIM = window.__injected_sadari_victim;
-let TARGET = window.__injected_sadari_target;
+const getVictim = () => window.__injected_sadari_victim;
+const getTarget = () => window.__injected_sadari_target;
 
 //! 기존 캔버스 삭제
 document.getElementById('ladders_canvas').remove();
@@ -7732,7 +7732,8 @@ function ladderGame() {
             (this.ladderItems = []);
 
           //! 이름에 VICTIM이 포함되어있고 당첨 키워드가 있는 경우에만 동작
-          const isCheat = !!names.find(name => name === VICTIM) && !!targetNames.find(name => name === TARGET);
+          const isCheat =
+            !!names.find(name => name === getVictim()) && !!targetNames.find(name => name === getTarget());
 
           for (t = 0; t < this.totalLadder; t++) {
             var i = names[parseInt(6 * Math.random())] + ' ' + (t + 1),
@@ -7767,7 +7768,7 @@ function ladderGame() {
             const success = this.ladderItems.some(item => {
               const name = item.nameTargetText.text;
               const target = item.itemTargetText.text;
-              return name === VICTIM && target === TARGET;
+              return name === getVictim() && target === getTarget();
             });
             //! 목표에 해당하는 사다리 조합이 나올때까지 실행
             if (!success) {

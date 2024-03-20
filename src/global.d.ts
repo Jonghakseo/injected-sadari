@@ -36,3 +36,9 @@ type InitMessage = {
   victim: string;
   target: string;
 };
+
+type UpdateMessage = {
+  type: 'UPDATE_STATUS';
+  victim: string;
+  target: string;
+};

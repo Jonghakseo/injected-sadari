@@ -15,6 +15,7 @@
     "build:hmr": "rollup --config utils/reload/rollup.config.mjs",
     "wss": "node utils/reload/initReloadServer.js",
     "dev": "pnpm build:hmr && (run-p wss build:watch)",
+    "server": "node server.cjs",
     "dev:firefox": "pnpm build:hmr && (run-p wss build:firefox:watch)",
     "test": "vitest",
     "commitlint": "commitlint --edit",
@@ -25,6 +26,7 @@
   "type": "module",
   "dependencies": {
     "construct-style-sheets-polyfill": "3.1.0",
+    "express": "^4.18.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "webextension-polyfill": "0.10.0"
