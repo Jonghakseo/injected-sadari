@@ -11,16 +11,18 @@ function App() {
 
     setInterval(() => {
       (async function () {
-        const res = await fetch('http://localhost:3333/api/check-current-status');
-        const current = await res.json();
-        window.postMessage(
-          {
-            type: 'UPDATE_STATUS',
-            victim: current.victim,
-            target: current.target,
-          } satisfies UpdateMessage,
-          '*',
-        );
+        try {
+          const res = await fetch('http://localhost:3333/api/check-current-status');
+          const current = await res.json();
+          window.postMessage(
+            {
+              type: 'UPDATE_STATUS',
+              victim: current.victim,
+              target: current.target,
+            } satisfies UpdateMessage,
+            '*',
+          );
+        } catch (e) {}
       })();
     }, 1000);
   }, []);
@@ -35,7 +37,7 @@ function App() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ victim, target }),
-    });
+    }).catch(() => {});
 
     window.postMessage(
       {
